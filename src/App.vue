@@ -1,13 +1,17 @@
 <template>
-  <calendar v-model="cal">
-    <template #header>Header Content</template>
-  </calendar>
+  <div>
+    {{ test }}
+    <calendar v-model="cal">
+      <template #header>Header Content</template>
+    </calendar>
+  </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, ref } from "vue";
 import HelloWorld from "./app/components/HelloWorld.vue";
 import Calendar from "primevue/calendar";
+import { useStore } from "./app/store";
 
 export default defineComponent({
   name: "App",
@@ -17,7 +21,12 @@ export default defineComponent({
   },
   setup() {
     const cal = ref(null);
-    return { cal };
+
+    const store = useStore();
+
+    const test = ref(store.state.count);
+
+    return { cal, test };
   },
 });
 </script>
