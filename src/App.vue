@@ -24,7 +24,7 @@ export default defineComponent({
 
     const store = useStore();
 
-    const test = ref(store.state.testmodule.items);
+    const test = ref(store.state.testmodule.usecase);
 
     return { cal, test };
   },

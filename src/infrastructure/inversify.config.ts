@@ -1,5 +1,7 @@
+import "reflect-metadata";
 import { Container } from "inversify";
 import TYPES from "../domain/galaxyTypes";
+import getDecorators from "inversify-inject-decorators";
 import GalaxyPort from "../domain/ports/galaxyPort";
 import GalaxyAdapter from "./galaxyAdapter";
 import CreateGalaxyUseCase from "../domain/usecases/createGalaxyUseCase";
@@ -11,4 +13,5 @@ container
   .bind<CreateGalaxyUseCase>(TYPES.CreateGalaxyUseCase)
   .to(GalaxyService);
 
-export default container;
+const { lazyInject } = getDecorators(container);
+export { lazyInject, container };

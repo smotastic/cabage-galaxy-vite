@@ -8,8 +8,10 @@
   },
   "dependencies": {
     "inversify": "^5.0.5",
+    "inversify-inject-decorators": "^3.1.0",
     "primeicons": "^4.1.0",
     "primevue": "^3.3.5",
+    "reflect-metadata": "^0.1.13",
     "vue": "^3.0.5",
     "vuex": "^4.0.0",
     "vuex-module-decorators": "^1.0.1"
