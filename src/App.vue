@@ -1,6 +1,6 @@
 <template>
   <div>
-    {{ testmodule.galaxies }}
+    {{ galaxyStore.galaxies }}
     <button @click="addGalaxy">Hallo</button>
     <calendar v-model="cal">
       <template #header>Header Content</template>
@@ -15,7 +15,7 @@ import Calendar from "primevue/calendar";
 import { useStore } from "./app/store";
 import Galaxy from "./domain/model/galaxy";
 import { getModule } from "vuex-module-decorators";
-import { TestmoduleStore } from "./app/store/galaxy/testmodule";
+import { GalaxyStore } from "./app/store/galaxy/galaxyModule";
 
 export default defineComponent({
   name: "App",
@@ -28,14 +28,14 @@ export default defineComponent({
 
     const store = useStore();
 
-    const testmodule: TestmoduleStore = getModule(TestmoduleStore, store);
-    testmodule.fetchGalaxies();
+    const galaxyStore: GalaxyStore = getModule(GalaxyStore, store);
+    galaxyStore.fetchGalaxies();
 
     function addGalaxy() {
-      testmodule.addGalaxy("Hallo");
+      galaxyStore.addGalaxy("Hallo");
     }
 
-    return { cal, testmodule, addGalaxy };
+    return { cal, galaxyStore, addGalaxy };
   },
 });
 </script>

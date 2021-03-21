@@ -5,15 +5,15 @@ import ListGalaxyUseCase from "../../../domain/galaxy/usecases/listGalaxyUseCase
 import CreateGalaxyUseCase from "../../../domain/galaxy/usecases/createGalaxyUseCase";
 import Galaxy from "../../../domain/galaxy/model/galaxy";
 import { toHandlers } from "@vue/runtime-core";
-export interface TestmoduleState {
+export interface GalaxyState {
   galaxies: Galaxy[];
 }
 
 @Module({
-  name: "testmodule",
+  name: "galaxyModule",
   namespaced: true,
 })
-export class TestmoduleStore extends VuexModule implements TestmoduleState {
+export class GalaxyStore extends VuexModule implements GalaxyState {
   @lazyInject(TYPES.ListGalaxyUseCase)
   public listUsecase!: ListGalaxyUseCase;
   @lazyInject(TYPES.CreateGalaxyUseCase)
