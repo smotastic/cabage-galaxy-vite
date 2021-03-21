@@ -1,6 +1,6 @@
 <template>
   <div>
-    {{ test }}
+    {{ testmodule.galaxies }}
     <calendar v-model="cal">
       <template #header>Header Content</template>
     </calendar>
@@ -8,10 +8,13 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from "vue";
+import { defineComponent, ref, Ref } from "vue";
 import HelloWorld from "./app/components/HelloWorld.vue";
 import Calendar from "primevue/calendar";
 import { useStore } from "./app/store";
+import Galaxy from "./domain/model/galaxy";
+import { getModule } from "vuex-module-decorators";
+import { TestmoduleStore } from "./app/store/testmodule";
 
 export default defineComponent({
   name: "App",
@@ -24,9 +27,12 @@ export default defineComponent({
 
     const store = useStore();
 
-    const test = ref(store.state.testmodule.usecase);
+    const test: Ref<Galaxy[]> = ref([]);
 
-    return { cal, test };
+    const testmodule: TestmoduleStore = getModule(TestmoduleStore, store);
+    testmodule.fetchItems();
+
+    return { cal, testmodule };
   },
 });
 </script>
