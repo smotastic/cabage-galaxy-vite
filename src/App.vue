@@ -12,7 +12,7 @@
 import { defineComponent, ref, Ref } from "vue";
 import HelloWorld from "./app/components/HelloWorld.vue";
 import Calendar from "primevue/calendar";
-import { useStore } from "./app/store";
+import { useModule } from "./app/store";
 import Galaxy from "./domain/model/galaxy";
 import { getModule } from "vuex-module-decorators";
 import { GalaxyStore } from "./app/store/galaxy/galaxyModule";
@@ -26,9 +26,8 @@ export default defineComponent({
   setup() {
     const cal = ref(null);
 
-    const store = useStore();
+    const galaxyStore: GalaxyStore = useModule(GalaxyStore);
 
-    const galaxyStore: GalaxyStore = getModule(GalaxyStore, store);
     galaxyStore.fetchGalaxies();
 
     function addGalaxy() {

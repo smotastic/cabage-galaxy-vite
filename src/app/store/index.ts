@@ -2,6 +2,7 @@ import { InjectionKey } from "vue";
 import Vuex from "vuex";
 import { GalaxyState, GalaxyStore } from "./galaxy/galaxyModule";
 import { createStore, useStore as baseUseStore, Store } from "vuex";
+import { VuexModule, getModule } from "vuex-module-decorators";
 
 // define your typings for the store state
 // export interface State {
@@ -27,6 +28,17 @@ export const store = new Vuex.Store<RootState>({
   },
 });
 
-export function useStore() {
+function useStore() {
   return baseUseStore(key);
+}
+declare type ConstructorOf<C> = {
+  new (...args: any[]): C;
+};
+
+export function useModule<M extends VuexModule>(
+  moduleClass: ConstructorOf<M>
+): M {
+  const store = useStore();
+  const moduleStore: M = getModule(moduleClass, store);
+  return moduleStore;
 }
