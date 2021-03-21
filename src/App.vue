@@ -1,6 +1,7 @@
 <template>
   <div>
     {{ testmodule.galaxies }}
+    <button @click="addGalaxy">Hallo</button>
     <calendar v-model="cal">
       <template #header>Header Content</template>
     </calendar>
@@ -27,12 +28,14 @@ export default defineComponent({
 
     const store = useStore();
 
-    const test: Ref<Galaxy[]> = ref([]);
-
     const testmodule: TestmoduleStore = getModule(TestmoduleStore, store);
-    testmodule.fetchItems();
+    testmodule.fetchGalaxies();
 
-    return { cal, testmodule };
+    function addGalaxy() {
+      testmodule.addGalaxy("Hallo");
+    }
+
+    return { cal, testmodule, addGalaxy };
   },
 });
 </script>
