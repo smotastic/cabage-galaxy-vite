@@ -35,7 +35,7 @@ export class GalaxyStore extends VuexModule implements GalaxyState {
     this.setGalaxies(list);
   }
 
-  @Action
+  @Action({ rawError: true })
   async addGalaxy(galaxyName: string) {
     const createdGalaxy: Galaxy = await this.createUsecase.createGalaxy(
       galaxyName
