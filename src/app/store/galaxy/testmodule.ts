@@ -1,9 +1,9 @@
 import { Action, Module, Mutation, VuexModule } from "vuex-module-decorators";
-import { lazyInject } from "../../infrastructure/inversify.config";
-import TYPES from "../../domain/galaxyTypes";
-import ListGalaxyUseCase from "../../domain/usecases/listGalaxyUseCase";
-import CreateGalaxyUseCase from "../../domain/usecases/createGalaxyUseCase";
-import Galaxy from "../../domain/model/galaxy";
+import { lazyInject } from "../../../infrastructure/galaxy/inversify.config";
+import TYPES from "../../../domain/galaxy/galaxyTypes";
+import ListGalaxyUseCase from "../../../domain/galaxy/usecases/listGalaxyUseCase";
+import CreateGalaxyUseCase from "../../../domain/galaxy/usecases/createGalaxyUseCase";
+import Galaxy from "../../../domain/galaxy/model/galaxy";
 import { toHandlers } from "@vue/runtime-core";
 export interface TestmoduleState {
   galaxies: Galaxy[];

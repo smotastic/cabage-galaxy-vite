@@ -1,6 +1,6 @@
 import { InjectionKey } from "vue";
 import Vuex from "vuex";
-import { TestmoduleState, TestmoduleStore } from "./testmodule";
+import { TestmoduleState, TestmoduleStore } from "./galaxy/testmodule";
 import { createStore, useStore as baseUseStore, Store } from "vuex";
 
 // define your typings for the store state

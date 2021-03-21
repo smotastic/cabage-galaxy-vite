@@ -1,12 +1,12 @@
 import "reflect-metadata";
 import { Container } from "inversify";
-import TYPES from "../domain/galaxyTypes";
+import TYPES from "../../domain/galaxy/galaxyTypes";
 import getDecorators from "inversify-inject-decorators";
-import GalaxyPort from "../domain/ports/galaxyPort";
+import GalaxyPort from "../../domain/galaxy/ports/galaxyPort";
 import GalaxyAdapter from "./galaxyAdapter";
-import CreateGalaxyUseCase from "../domain/usecases/createGalaxyUseCase";
-import ListGalaxyUseCase from "../domain/usecases/listGalaxyUseCase";
-import GalaxyService from "../domain/galaxyService";
+import CreateGalaxyUseCase from "../../domain/galaxy/usecases/createGalaxyUseCase";
+import ListGalaxyUseCase from "../../domain/galaxy/usecases/listGalaxyUseCase";
+import GalaxyService from "../../domain/galaxy/galaxyService";
 
 const container = new Container();
 container.bind<GalaxyPort>(TYPES.GalaxyPort).to(GalaxyAdapter);

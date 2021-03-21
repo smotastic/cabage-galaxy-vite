@@ -1,6 +1,6 @@
 import { injectable } from "inversify";
-import Galaxy from "../domain/model/galaxy";
-import GalaxyPort from "../domain/ports/galaxyPort";
+import Galaxy from "../../domain/galaxy/model/galaxy";
+import GalaxyPort from "../../domain/galaxy/ports/galaxyPort";
 
 @injectable()
 export default class GalaxyAdapter implements GalaxyPort {

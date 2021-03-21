@@ -15,7 +15,7 @@ import Calendar from "primevue/calendar";
 import { useStore } from "./app/store";
 import Galaxy from "./domain/model/galaxy";
 import { getModule } from "vuex-module-decorators";
-import { TestmoduleStore } from "./app/store/testmodule";
+import { TestmoduleStore } from "./app/store/galaxy/testmodule";
 
 export default defineComponent({
   name: "App",
