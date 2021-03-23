@@ -3,18 +3,7 @@ import Vuex from "vuex";
 import { GalaxyState, GalaxyStore } from "./galaxy/galaxyModule";
 import { createStore, useStore as baseUseStore, Store } from "vuex";
 import { VuexModule, getModule } from "vuex-module-decorators";
-
-// define your typings for the store state
-// export interface State {
-//   count: number;
-// }
-
-// export const store = createStore<State>({
-//   state: {
-//     count: 5,
-//   },
-// });
-
+// https://next.vuex.vuejs.org/guide/typescript-support.html#typing-store-property-in-vue-component
 export interface RootState {
   galaxyModule: GalaxyState;
 }
