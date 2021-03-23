@@ -3,13 +3,13 @@ import { Container } from "inversify";
 import TYPES from "../../domain/galaxy/galaxyTypes";
 import getDecorators from "inversify-inject-decorators";
 import GalaxyPort from "../../domain/galaxy/ports/galaxyPort";
-import GalaxyAdapter from "./galaxyAdapter";
+import GalaxyInMemoryAdapter from "./galaxyInMemoryAdapter";
 import CreateGalaxyUseCase from "../../domain/galaxy/usecases/createGalaxyUseCase";
 import ListGalaxyUseCase from "../../domain/galaxy/usecases/listGalaxyUseCase";
 import GalaxyService from "../../domain/galaxy/galaxyService";
 
 const container = new Container();
-container.bind<GalaxyPort>(TYPES.GalaxyPort).to(GalaxyAdapter);
+container.bind<GalaxyPort>(TYPES.GalaxyPort).to(GalaxyInMemoryAdapter);
 container
   .bind<CreateGalaxyUseCase>(TYPES.CreateGalaxyUseCase)
   .to(GalaxyService);

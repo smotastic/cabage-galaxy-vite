@@ -3,7 +3,7 @@ import Galaxy from "../../domain/galaxy/model/galaxy";
 import GalaxyPort from "../../domain/galaxy/ports/galaxyPort";
 
 @injectable()
-export default class GalaxyAdapter implements GalaxyPort {
+export default class GalaxyInMemoryAdapter implements GalaxyPort {
   async createGalaxy(galaxyName: string): Promise<Galaxy> {
     const galaxies: Galaxy[] = await this.listGalaxy();
     const createdGalaxy: Galaxy = {

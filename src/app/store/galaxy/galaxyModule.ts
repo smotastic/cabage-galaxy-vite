@@ -24,14 +24,11 @@ export class GalaxyStore extends VuexModule implements GalaxyState {
   setGalaxies(items: Galaxy[]) {
     this.galaxies = items;
   }
-  @Mutation
-  addGalaxyToItems(item: Galaxy) {
-    this.galaxies.push(item);
-  }
 
   @Action({ rawError: true })
   async fetchGalaxies() {
     const list = await this.listUsecase.listGalaxy();
+    // this.galaxies = list;
     this.setGalaxies(list);
   }
 
@@ -40,6 +37,7 @@ export class GalaxyStore extends VuexModule implements GalaxyState {
     const createdGalaxy: Galaxy = await this.createUsecase.createGalaxy(
       galaxyName
     );
-    this.addGalaxyToItems(createdGalaxy);
+    this.galaxies.push(createdGalaxy);
+    // this.addGalaxyToItems(createdGalaxy);
   }
 }
